@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Counter from './Counter';
+import Counter from './componentLifeCycle/Counter';
 import Timer from './Timer';
 
 class App extends Component {
