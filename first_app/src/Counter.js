@@ -5,7 +5,6 @@ class Counter extends Component {
   constructor(props){
     super(props);
     this.state = {
-      name: 'Tulio',
       counter: 0
     };
 
@@ -32,7 +31,8 @@ class Counter extends Component {
   render(){
     return(
       <div>
-        <h1>Counter by {this.state.name}</h1>
+        <h1>Counter</h1>
+        <p>Practicing about props and components</p>
         <h3>
           <div>
             <button onClick={this.decrease}> - </button>

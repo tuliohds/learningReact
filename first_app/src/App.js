@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+import Counter from './Counter';
+import Timer from './Timer';
 
 class App extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      
-    };
-  }
 
   render(){
     return(
       <div>
-        <h1>My project</h1>
+        <h1>My projects on React</h1>
+        <div>
+          <Counter />
+          <Timer />
+        </div>
       </div>
     );
   }

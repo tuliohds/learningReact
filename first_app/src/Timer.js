@@ -18,7 +18,7 @@ class App extends Component {
 
   componentDidUpdate() {
     // when the app is reload this component will be executed
-    console.log('updating...');
+    // console.log('updating...');
   }
 
   render(){
