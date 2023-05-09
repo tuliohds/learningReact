@@ -22,7 +22,7 @@ class App extends Component {
   decrease(){
     let state = this.state;
     if(state.counter === 0){
-      alert('is not possible decrease zero');
+      alert('it is not possible to decrease zero');
       return;
     }
     state.counter -= 1;
