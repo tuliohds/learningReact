@@ -10,7 +10,7 @@ Então como vimos na aula nos ciclos de vida do componente temos:
 
 ## Inicialização
 
-Nesta fase, o componente React se prepara para sua inicialização, configurando os ```estados``` iniciais e props ```padrões``` se houverem.
+Nesta fase, o componente React se prepara para sua inicialização, configurando os ```estados``` iniciais e ```props``` padrões se houverem.
 
 ## Montagem:
 
