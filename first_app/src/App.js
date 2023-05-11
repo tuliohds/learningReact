@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Counter from './components/lifeCycle/Counter';
+import Counter from './components/LifeCycle/Counter';
 import Timer from './components/Timer';
+import Feed from './components/Feed';
 
 class App extends Component {
 
@@ -9,10 +10,12 @@ class App extends Component {
     this.state = {
       counterActivated: false,
       timerActivated: false,
+      feedActivated: false,
     };
 
     this.activeCounter = this.activeCounter.bind(this);
     this.activeTimer = this.activeTimer.bind(this);
+    this.activeFeed = this.activeFeed.bind(this);
     this.desativeAll = this.desativeAll.bind(this);
   }
 
@@ -28,10 +31,17 @@ class App extends Component {
     this.setState(state);
   }
 
+  activeFeed(){
+    let state = this.state;
+    state.feedActivated = true;
+    this.setState(state);
+  }
+
   desativeAll(){
     let state = this.state;
     state.counterActivated = false;
     state.timerActivated = false;
+    state.feedActivated = false;
     this.setState(state);
   }
 
@@ -43,12 +53,16 @@ class App extends Component {
         <div>
           <button onClick={this.activeCounter}> COUNTER </button>
           <button onClick={this.activeTimer}> TIMER </button>
+          <button onClick={this.activeFeed}> FEED </button>
           <button onClick={this.desativeAll}> DESATIVE ALL </button>
           {
             this.state.counterActivated === true && <Counter />
           }
           {
             this.state.timerActivated === true && <Timer />
+          }
+          {
+            this.state.feedActivated === true && <Feed />
           }
         </div>
       </div>
