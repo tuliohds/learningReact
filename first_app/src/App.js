@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Counter from './components/LifeCycle/Counter';
 import Timer from './components/Timer';
 import Feed from './components/Feed';
+import Form from './components/Form';
 
 class App extends Component {
 
@@ -11,11 +12,13 @@ class App extends Component {
       counterActivated: false,
       timerActivated: false,
       feedActivated: false,
+      formActivated: false,
     };
 
     this.activeCounter = this.activeCounter.bind(this);
     this.activeTimer = this.activeTimer.bind(this);
     this.activeFeed = this.activeFeed.bind(this);
+    this.activeForm = this.activeForm.bind(this);
     this.desativeAll = this.desativeAll.bind(this);
   }
 
@@ -37,11 +40,18 @@ class App extends Component {
     this.setState(state);
   }
 
+  activeForm(){
+    let state = this.state;
+    state.formActivated = true;
+    this.setState(state);
+  }
+
   desativeAll(){
     let state = this.state;
     state.counterActivated = false;
     state.timerActivated = false;
     state.feedActivated = false;
+    state.formActivated = false;
     this.setState(state);
   }
 
@@ -54,6 +64,7 @@ class App extends Component {
           <button onClick={this.activeCounter}> COUNTER </button>
           <button onClick={this.activeTimer}> TIMER </button>
           <button onClick={this.activeFeed}> FEED </button>
+          <button onClick={this.activeForm}> FORM </button>
           <button onClick={this.desativeAll}> DESATIVE ALL </button>
           {
             this.state.counterActivated === true && <Counter />
@@ -63,6 +74,9 @@ class App extends Component {
           }
           {
             this.state.feedActivated === true && <Feed />
+          }
+          {
+            this.state.formActivated === true && <Form />
           }
         </div>
       </div>
