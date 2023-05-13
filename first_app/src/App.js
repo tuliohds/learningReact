@@ -3,6 +3,7 @@ import Counter from './components/LifeCycle/Counter';
 import Timer from './components/Timer';
 import Feed from './components/Feed';
 import Form from './components/Form';
+import FormLogin from './components/Form/form';
 
 class App extends Component {
 
@@ -13,12 +14,14 @@ class App extends Component {
       timerActivated: false,
       feedActivated: false,
       formActivated: false,
+      formLoginActivated: false,
     };
 
     this.activeCounter = this.activeCounter.bind(this);
     this.activeTimer = this.activeTimer.bind(this);
     this.activeFeed = this.activeFeed.bind(this);
     this.activeForm = this.activeForm.bind(this);
+    this.activeLoginForm = this.activeLoginForm.bind(this);
     this.desativeAll = this.desativeAll.bind(this);
   }
 
@@ -46,12 +49,19 @@ class App extends Component {
     this.setState(state);
   }
 
+  activeLoginForm(){
+    let state = this.state;
+    state.formLoginActivated = true;
+    this.setState(state);
+  }
+
   desativeAll(){
     let state = this.state;
     state.counterActivated = false;
     state.timerActivated = false;
     state.feedActivated = false;
     state.formActivated = false;
+    state.formLoginActivated = false;
     this.setState(state);
   }
 
@@ -65,6 +75,7 @@ class App extends Component {
           <button onClick={this.activeTimer}> TIMER </button>
           <button onClick={this.activeFeed}> FEED </button>
           <button onClick={this.activeForm}> FORM </button>
+          <button onClick={this.activeLoginForm}> LOGIN </button>
           <button onClick={this.desativeAll}> DESATIVE ALL </button>
           {
             this.state.counterActivated === true && <Counter />
@@ -77,6 +88,9 @@ class App extends Component {
           }
           {
             this.state.formActivated === true && <Form />
+          }
+          {
+            this.state.formLoginActivated === true && <FormLogin />
           }
         </div>
       </div>
