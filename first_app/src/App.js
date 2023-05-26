@@ -4,6 +4,7 @@ import Timer from './components/Timer';
 import Feed from './components/Feed';
 import Form from './components/Form';
 import FormLogin from './components/Form/form';
+import FortuneCookie from './components/FortuneCookie';
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
       feedActivated: false,
       formActivated: false,
       formLoginActivated: false,
+      fortuneCookieActivated: false,
     };
 
     this.activeCounter = this.activeCounter.bind(this);
@@ -22,6 +24,7 @@ class App extends Component {
     this.activeFeed = this.activeFeed.bind(this);
     this.activeForm = this.activeForm.bind(this);
     this.activeLoginForm = this.activeLoginForm.bind(this);
+    this.fortuneCookieForm = this.fortuneCookieForm.bind(this);
     this.desativeAll = this.desativeAll.bind(this);
   }
 
@@ -55,6 +58,12 @@ class App extends Component {
     this.setState(state);
   }
 
+  fortuneCookieForm(){
+    let state = this.state;
+    state.fortuneCookieActivated = true;
+    this.setState(state);
+  }
+
   desativeAll(){
     let state = this.state;
     state.counterActivated = false;
@@ -62,6 +71,7 @@ class App extends Component {
     state.feedActivated = false;
     state.formActivated = false;
     state.formLoginActivated = false;
+    state.fortuneCookieActivated = false;
     this.setState(state);
   }
 
@@ -76,6 +86,7 @@ class App extends Component {
           <button onClick={this.activeFeed}> FEED </button>
           <button onClick={this.activeForm}> FORM </button>
           <button onClick={this.activeLoginForm}> LOGIN </button>
+          <button onClick={this.fortuneCookieForm}> FORTUNE COOKIE </button>
           <button onClick={this.desativeAll}> DESATIVE ALL </button>
           {
             this.state.counterActivated === true && <Counter />
@@ -91,6 +102,9 @@ class App extends Component {
           }
           {
             this.state.formLoginActivated === true && <FormLogin />
+          }
+          {
+            this.state.fortuneCookieActivated === true && <FortuneCookie />
           }
         </div>
       </div>
